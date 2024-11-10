@@ -10,5 +10,7 @@ public class Limpeza extends Folha {
     @Override
     public void listar(int nivel){
         tabular(nivel);
+        System.out.println("Limpeza: " + this.nome);
+
     }
 }

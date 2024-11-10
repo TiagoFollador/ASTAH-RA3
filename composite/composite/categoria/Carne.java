@@ -10,5 +10,6 @@ public class Carne extends Folha {
     @Override
     public void listar(int nivel){
         tabular(nivel);
+        System.out.println("Carne: " + this.nome);
     }
 }

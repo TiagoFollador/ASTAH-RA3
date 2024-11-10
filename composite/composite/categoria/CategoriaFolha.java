@@ -5,8 +5,4 @@ public class CategoriaFolha extends Categoria{
         super(nm);
     }
 
-    @Override
-    public void listar(int nivel){
-        tabular(nivel);
-    }
 }

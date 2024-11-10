@@ -10,5 +10,7 @@ public class Defumado extends Folha {
     @Override
     public void listar(int nivel){
         tabular(nivel);
+        System.out.println("Defumado: " + this.nome);
+
     }
 }

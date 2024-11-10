@@ -20,7 +20,7 @@ public class Main {
                     Elemento P2 = new Cereal("P2");
                     Elemento P3 = new Cereal("P3");
 
-                Elemento bebida = new CategoriaFolha("beboda");
+                Elemento bebida = new CategoriaFolha("bebida");
                     Elemento P4 = new Bebida("P4");
                     Elemento P5 = new Bebida("P5");
                     Elemento P6 = new Bebida("P6");
@@ -53,10 +53,54 @@ public class Main {
             carne.adicionar(P11);
             carne.adicionar(P12);
 
+            limpeza.adicionar(L1);
+            limpeza.adicionar(L2);
+            limpeza.adicionar(L3);
+
+            diversos.adicionar(cereal);
+            diversos.adicionar(bebida);
+
+            proteinaAnimal.adicionar(defumado);
+            proteinaAnimal.adicionar(carne);
+
+            comestivel.adicionar(diversos);
+            comestivel.adicionar(proteinaAnimal);
+
+            CRaiz.adicionar(comestivel);
+            CRaiz.adicionar(limpeza);
+
+        } catch (MyException e) {
+            System.out.println( e.getMessage() );
+        }
+
+        return CRaiz;
+    }
+
+    public static void main(String[] args) {
+        try {
+            Elemento CRaiz = criarInstancias();
+            CRaiz.listar(0);
+
+            System.out.println("\n");
+
+            Elemento L4 = new Limpeza("L4");
+            Elemento filho = CRaiz.consultar("proteinaAnimal");
+
+            filho.adicionar(L4);
+            filho.listar(0);
+
+            CRaiz.excluir("bebida");
+
+            filho = CRaiz.consultar("CRaiz");
+            filho.listar(0);
+
+            filho = CRaiz.excluir("bebida");
+            filho = CRaiz.consultar("bebida");
 
 
         } catch (MyException e) {
-            throw new RuntimeException(e);
+            System.out.println( e.getMessage() );
         }
+
     }
 }

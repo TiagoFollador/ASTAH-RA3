@@ -9,5 +9,7 @@ public class Cereal extends Folha {
     @Override
     public void listar(int nivel){
         tabular(nivel);
+        System.out.println("Cereal: " + this.nome);
+
     }
 }

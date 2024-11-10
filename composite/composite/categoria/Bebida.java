@@ -10,5 +10,6 @@ public class Bebida extends Folha {
     @Override
     public void listar(int nivel) {
         tabular(nivel);
+        System.out.println("Bebida: " + this.nome);
     }
 }
