@@ -6,22 +6,47 @@ public class Teste
     public static void execute()
     {
         Componente pedroMes11 = new Funcionario("Pedro", "Silva");
-        Componente a1, a2, a3, a4, a5;
+        Componente Joao = new Funcionario("João", "Silva");
+        Componente Maria = new Funcionario("Maria", "Silva");
+        Componente AnalistaDeSistemaPrdro1, ArquitetoDeSoftwarePedro1, AnalistaDeSistemaPedro2, ArquitetoDeSoftwarePedro2, TestadorDeSoftwarePedro1, ProgramadorJoao, ImplantadorJoao, TreinamentoDeUsuarioJoao, AnalistaDeSistemaMaria1, TestadorDeSoftwareMaria1, ProgramadorMaria;
         try{
-            a1 = new AnalistaDeSistema(80f, 40f);
-            a1.aponta( pedroMes11 );
-            a2 = new ArquitetoDeSoftware(20F, 50F);
-            a2.aponta( a1 );
-            a3 = new AnalistaDeSistema(40F, 40F);
-            a3.aponta( a2 );
-            a4 = new ArquitetoDeSoftware(20F, 50F);
-            a4.aponta( a3 );
-            a5 = new TestadorDeSoftware(20F, 30F);
-            a5.aponta( a4 );
-            
-            double salario = a5.calculaSalario();
-            System.out.println(a5.toString());
-            System.out.println("Salario: "+a5.calculaSalario());
+            //PEDRO
+            AnalistaDeSistemaPrdro1 = new AnalistaDeSistema(80f, 40f);
+            AnalistaDeSistemaPrdro1.aponta( pedroMes11 );
+            ArquitetoDeSoftwarePedro1 = new ArquitetoDeSoftware(20F, 50F);
+            ArquitetoDeSoftwarePedro1.aponta( AnalistaDeSistemaPrdro1 );
+            AnalistaDeSistemaPedro2 = new AnalistaDeSistema(40F, 40F);
+            AnalistaDeSistemaPedro2.aponta( ArquitetoDeSoftwarePedro1 );
+            ArquitetoDeSoftwarePedro2 = new ArquitetoDeSoftware(20F, 50F);
+            ArquitetoDeSoftwarePedro2.aponta( AnalistaDeSistemaPedro2 );
+            TestadorDeSoftwarePedro1 = new TestadorDeSoftware(20F, 30F);
+            TestadorDeSoftwarePedro1.aponta( ArquitetoDeSoftwarePedro2 );
+
+            //ATIVIDADES JOÃO
+            ProgramadorJoao = new Programador(80, 20);
+            ProgramadorJoao.aponta(Joao);
+            ImplantadorJoao = new Implantador(40, 40);
+            ImplantadorJoao.aponta(ProgramadorJoao);
+            TreinamentoDeUsuarioJoao = new TreinamentoDeUsuario(60, 40);
+            TreinamentoDeUsuarioJoao.aponta(ImplantadorJoao);
+
+            //ATIVIDADES MARIA
+            AnalistaDeSistemaMaria1 = new AnalistaDeSistema(90, 30);
+            AnalistaDeSistemaMaria1.aponta(Maria);
+            TestadorDeSoftwareMaria1 = new TestadorDeSoftware(20, 40);
+            TestadorDeSoftwareMaria1.aponta(AnalistaDeSistemaMaria1);
+            ProgramadorMaria = new Programador(70, 20);
+            ProgramadorMaria.aponta(TestadorDeSoftwareMaria1);
+
+            double PedroSalario = TestadorDeSoftwarePedro1.calculaSalario();
+            double JoaoSalario = TreinamentoDeUsuarioJoao.calculaSalario();
+            double MariasSalario = ProgramadorMaria.calculaSalario();
+            System.out.println(TestadorDeSoftwarePedro1.toString());
+            System.out.println("Salario: "+ PedroSalario);
+            System.out.println(TreinamentoDeUsuarioJoao.toString());
+            System.out.println("Salario: " + JoaoSalario);
+            System.out.println(ProgramadorMaria.toString());
+            System.out.println("Salario: " + MariasSalario);
    
             /*     
             Funcionario: Pedro Silva
